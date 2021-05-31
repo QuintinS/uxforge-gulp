@@ -1,0 +1,13 @@
+.form-input {
+
+  &.form-input--flex {
+
+    display: flex;
+
+    .input-group-field {
+      margin-bottom: 0;
+    }
+
+  }
+
+}

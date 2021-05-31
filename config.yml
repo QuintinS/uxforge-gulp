@@ -1,0 +1,9 @@
+development:
+  password: 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
+  theme_id: "122696171684"
+  store: brackish-co.myshopify.com
+  directory: theme
+  ignore_files:
+    - "*.gif"
+    - "*.jpg"
+    - config/settings_data.json

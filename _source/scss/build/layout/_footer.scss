@@ -1,0 +1,136 @@
+footer.site-footer-wrapper {
+
+  border-top: 1px solid #e6e6e6;
+
+  @media (max-width: 767px) {
+    background-image: url(#{'{{ \'feather-pattern.jpg\' | file_img_url: 'master' }}'});
+    background-repeat: repeat-x;
+    background-position: bottom middle;
+  }
+
+  h4.footer__title {
+    color: var(---color-text-dark);
+  }
+
+  .footer-quicklinks {
+
+    font-size: var(---font-base-body-small--desktop);
+    font-family: var(---font-stack-body);
+    text-transform: none;
+    letter-spacing: 0;
+
+    a {
+      color: var(---color-text-dark);
+      &:hover {
+        color: var(---color-primary);
+      }
+    }
+
+    .contact-link {
+      a {
+        color: var(---color-primary);
+        &:after {
+          width: 100%;
+        }
+        &:hover,
+        &:focus {
+          color: var(---color-text-dark);
+        }
+      }
+      svg {
+        position: relative;
+        max-width: 16px !important;
+        top: 3px;
+        margin-right: 0.25em;
+        fill: var(---color-primary);
+        transition: color 0.25s;
+      }
+    }
+
+  }
+
+  .footer-secondary {
+
+    font-family: var(---font-stack-body);
+    font-weight: var(---font-weight-body);
+    font-style: var(---font-style-body);
+    text-transform: none;
+    font-size: calc(var(---font-base-body-xs--desktop)  );
+
+    a {
+
+      color: var(---color-text-dark);
+
+      &:hover,
+      &:focus {
+        color: var(---color-primary);
+      }
+
+    }
+
+  }
+
+}
+
+
+.footer-accordion {
+
+  @media (max-width: 767px) {
+
+    margin-top: -1px;
+
+    .footer__title {
+      margin: 0;
+      font-size: calc(var(---font-base-h3--mobile) * var(---font-adjust-heading));
+    }
+
+    .footer-accordion__link {
+      display: flex;
+      padding: 0.5em 0;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      margin: 0;
+    }
+
+    .footer-accordion__arrow {
+      line-height: 1;
+      vertical-align: top;
+      width: 18px;
+      height: 18px;
+      transition: 0.25s transform;
+    }
+
+    .footer-accordion__content {
+      margin: 1em 0;
+    }
+
+    &.footer-accordion--collapsed {
+      .footer-accordion__arrow {
+        transform: rotate(90deg);
+      }
+      .footer-accordion__content {
+        display: none;
+      }
+    }
+
+    &.footer-accordion--expanded {
+      .footer-accordion__arrow {
+        transform: rotate(270deg);
+      }
+    }
+
+  }
+
+  @media (min-width: 767px) {
+    .footer-accordion__link {
+      padding: 0;
+    }
+    .footer-accordion__arrow {
+      display: none;
+    }
+  }
+
+}

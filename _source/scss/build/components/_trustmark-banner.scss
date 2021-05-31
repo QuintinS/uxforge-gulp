@@ -1,0 +1,48 @@
+/* ----- Trust Marks ----- */
+
+.trustmark-banner {
+
+  margin-top: 20px;
+  padding: 30px 15px;
+  border-radius: 5px;
+  background: #F0F0F0;
+
+  .trustmarks {
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+  }
+
+  .trustmark {
+
+    text-align: center;
+    color: #58595B;
+    padding: 0 15px;
+    border-right: 1px solid #dddddd;
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    .trustmark__icon {
+      svg {
+        max-width: 32px;
+        max-height: 32px;
+        * {
+          fill: #58595B;
+          stroke: transparent;
+        }
+      }
+    }
+
+    .trustmark__text {
+      font-size: var(---font-base-body-small--mobile);
+    }
+  }
+
+}

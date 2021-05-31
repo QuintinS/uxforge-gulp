@@ -1,0 +1,14 @@
+.announcement__bar {
+
+  transition: color 0.25s;
+
+  a {
+    &:hover {
+      .announcement__main,
+      .announcement__more {
+        color: var(---color-primary);
+      }
+    }
+  }
+
+}

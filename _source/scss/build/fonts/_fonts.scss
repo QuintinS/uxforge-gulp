@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Calisto";
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url(#{'{{ \'normal_normal_bold.woff2\' }}'}) format('woff2'), url(#{'{{ \'normal_normal_bold.woff\' }}'}) format('woff');
+}
+@font-face {
+  font-family: "Calisto";
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url(#{'{{ \'italic_normal_normal.woff2\' }}'}) format('woff2'), url(#{'{{ \'italic_normal_normal.woff\' }}'}) format('woff');
+}
+@font-face {
+  font-family: "Calisto";
+  font-style: italic;
+  font-weight: bold;
+  font-stretch: normal;
+  src: url(#{'{{ \'italic_normal_bold.woff2\' }}'}) format('woff2'), url(#{'{{ \'italic_normal_bold.woff\' }}'}) format('woff');
+}
+@font-face {
+  font-family: "Calisto";
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url(#{'{{ \'normal_normal_normal.woff2\' }}'}) format('woff2'), url(#{'{{ \'normal_normal_normal.woff\' }}'}) format('woff');
+}
+
+@font-face {
+  font-family: "FuturaLTPro-Medium";
+  src:
+    url(#{'{{ \'FuturaLTProMedium.woff2\' | asset_url }}'}) format('woff2'),
+    url(#{'{{ \'FuturaLTProMedium.woff\' | asset_url }}'}) format('woff');
+}

@@ -1,0 +1,153 @@
+/*
+	INDEX
+
+	1. Variables
+		1.1. Colours
+		1.2. Fonts
+		1.3. Layout
+	2. Mixins
+	3. Fonts
+	4. Basic Styles
+	5. Layout
+		5.1. Header
+  		5.1.1. Desktop Header
+  		5.1.2. Mobile Header
+  		5.1.3. Dropdowns
+		5.2. Content
+		5.3. Footer
+	6. Sections
+  	6.1. Hero Banner
+  	6.2. Featured Collections
+	7. Page-Specific Styles
+		7.1. Home Page
+		7.2. Collection Page
+		7.3. Product Page
+			7.3.1. Name
+			7.3.2. Prices
+			7.3.3. Images
+			7.3.4. Product Form
+		7.4. Blog Index
+		7.5. Blog Article
+		7.6. Cart Page
+			7.6.1. Header
+			7.6.2. Cart Contents
+			7.6.3. Cart Summary
+		7.7. Account
+  		7.7.1. Login / Recover Password
+      7.7.2. Create Account
+      7.7.3. Reset Password
+      7.7.4. Account
+      7.7.4. Addresses
+		7.8. Pages
+			7.8.1. Page
+			7.8.2. Multi-Column Page
+			7.8.3. Narrow Page
+			7.8.4. Contact Page
+	8. Components
+		8.1. Form Elements
+			8.1.1. Buttons
+			8.1.2. Banners
+			8.1.3. Inputs
+			8.1.4. Form Validation
+			8.1.5. Checkboxes
+	9. Apps
+	10. Utility Classes
+	11. Third-Party Styles
+	12. Animations
+
+*/
+
+@import url("//hello.myfonts.net/count/3e6d1f");
+
+/* 1. Variables */
+
+@import
+  "./settings/_variables.scss";
+
+/* 2. Mixins */
+
+@import
+  "./settings/_mixins.scss"
+  ;
+
+/* 3. Fonts  */
+
+@import
+  "./fonts/_fonts.scss"
+  ;
+
+/* 4. Basic Styles */
+
+@import
+  // "./basic-styles/_reset.scss",
+  "./basic-styles/_basic-styles.scss"
+  ;
+
+/* 5. Layout */
+
+@import
+  "./layout/_announcement.scss",
+  "./layout/_header.scss",
+  "./layout/_content.scss",
+  "./layout/_footer.scss"
+  // "./layout/_grid.scss",
+  ;
+
+/* 6. Sections */
+
+@import
+  "./sections/_newsletter.scss",
+  "./sections/_brackish-talk-to-us.scss",
+  "./sections/_brackish-index-hero.scss",
+  "./sections/_brackish-index-collection-list.scss",
+  "./sections/_brackish-index-featured-collection.scss",
+  "./sections/_brackish-product-info-item.scss",
+  "./sections/_brackish-story-banner.scss",
+  "./sections/_brackish-collection-slider.scss",
+  "./sections/_brackish-homepage-logos.scss",
+  "./sections/_brackish-testimonials.scss",
+  "./sections/_brackish-homepage-collection-grid.scss",
+  "./sections/_brackish-featured-collection-grid.scss"
+  ;
+
+/* 7. Page-Specific Styles */
+
+@import
+  "./pages/_home.scss",
+  "./pages/_collection.scss",
+  "./pages/_product.scss",
+  "./pages/_cart.scss",
+  "./pages/_blog.scss",
+  "./pages/_article.scss",
+  "./pages/_page.scss",
+  "./pages/_page-contact.scss"
+  ;
+
+/* 8. Components */
+
+@import
+  "./components/_buttons.scss",
+  "./components/_formelements.scss",
+  "./components/_product-card.scss",
+  "./components/_trustmark-banner.scss",
+  "./components/_tabs.scss"
+  ;
+
+/* 9. Apps  */
+
+@import
+  "./apps/_yotpo.scss";
+
+/* 10. Utility Classes */
+
+@import
+  "./utilities/_classes.scss";
+
+/* 11. Third-Party Styles */
+
+@import
+  "./third-party/_tippy.scss";
+
+/* 12. Animations */
+
+@import "./utilities/_animations.scss";

@@ -1,0 +1,101 @@
+.template-collection {
+
+  .collection {
+    padding-bottom: 0;
+  }
+
+  /* ---- Sub-Collection Nav ---- */
+
+  .sub-collections {
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+      gap: 20px;
+
+    }
+
+    .sub-collection {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 1em;
+
+      font-size: 0.9em;
+      font-weight: var(---font-weight-heading);
+      font-family: var(---font-stack-heading);
+      text-align: center;
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+      background: var(---color-bg-accent);
+
+      &:focus,
+      &:hover {
+        background: var(---color-bg-2);
+      }
+
+    }
+
+  }
+
+  /* ---- Hero Image ---- */
+
+  .section--image {
+
+    min-height: 50vh;
+
+    h3 {
+      margin-bottom: 0;
+    }
+    .wrapper {
+      max-width: 700px;
+    }
+    .title {
+      font-size: 50px;
+    }
+
+  }
+
+  /* ---- View Controls Bar ---- */
+
+  .collection__nav {
+
+    font-size: 12px;
+
+    button, span {
+      font-weight: bold;
+      color: #999;
+      font-size: 10px;
+      svg {
+        font-size: 14px;
+      }
+    }
+
+  }
+
+  /* ---- Pagination ---- */
+
+  .pagination-custom {
+    font-size: 0.7em;
+    --border: #e6e6e6;
+  }
+
+}

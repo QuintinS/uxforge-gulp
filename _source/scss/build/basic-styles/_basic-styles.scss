@@ -1,0 +1,20 @@
+h1, h2, h3, h4, h5, h6 {
+  padding: 5px 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+ul.ul--feather {
+
+  margin-left: 0;
+
+  li {
+    padding-left: 25px;
+    background-image: url(#{'{{ \'feather-bullet.svg\' | asset_url }}'});
+    background-repeat: no-repeat;
+    list-style: none;
+  }
+  
+}

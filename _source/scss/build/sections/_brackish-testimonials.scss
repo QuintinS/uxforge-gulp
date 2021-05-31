@@ -1,0 +1,46 @@
+.brackish-testimonials {
+
+  .testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  .home__subtitle {
+    margin-bottom: 0;
+  }
+
+  .testimonial {
+    margin-bottom: 32px;
+    &:last-child() {
+      margin-bottom: 0;
+    }
+    @media (min-width: 768px) {
+      flex: 50% 1 0;
+      margin-top: 32px;
+      margin-bottom: 0;
+    }
+  }
+
+  .homepage-page__actions {
+    @media (min-width: 768px) {
+      margin-top: 64px;
+    }
+  }
+
+  blockquote {
+    @media (max-width: 480px) {
+      padding: 0;
+    }
+    p {
+      font-size: calc(var(---font-base-body-blockquote--desktop) * var(---font-adjust-body));
+      @media (max-width: 480px) {
+        font-size: calc(var(---font-base-body-blockquote--mobile) * var(---font-adjust-body));
+      }
+    }
+  }
+
+}
