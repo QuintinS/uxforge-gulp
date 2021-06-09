@@ -1,0 +1,78 @@
+/* 1. Variables */
+
+@import "./utilities/_variables.scss";
+
+/* 2. Mixins */
+
+@import "./utilities/_mixins.scss";
+
+/* 3. Fonts  */
+
+@import "./fonts/_fonts.scss";
+
+/* 4. Basic Styles */
+
+@import "./basic-styles/_normalize.scss";
+@import "./basic-styles/_basic-styles.scss";
+
+/* 5. Layout */
+
+@import
+  "./layout/_grid.scss"
+  ;
+
+/* 6. Sections */
+
+@import
+  "./sections/_header.scss",
+  "./sections/_footer.scss"
+  ;
+
+/* 7. Page-Specific Styles */
+
+@import
+  "./pages/_home.scss",
+  "./pages/_collection.scss",
+  "./pages/_product.scss",
+  "./pages/_cart.scss",
+  "./pages/_blog.scss",
+  "./pages/_article.scss",
+  "./pages/_page.scss",
+  "./pages/_page-landingpages.scss",
+  "./pages/_page-contact.scss"
+  ;
+
+/* 8. Components */
+
+@import
+  "./components/_buttons.scss",
+  "./components/_formelements.scss",
+  "./components/_cart-upsells.scss",
+  "./components/_product-card.scss",
+  "./components/_trustmark-banner.scss",
+  "./components/_article.scss",
+  "./components/_article-card.scss",
+  "./components/_contact-link.scss",
+  "./components/_product-grid-banner.scss",
+  "./components/_tabs.scss"
+  ;
+
+/* 9. Apps  */
+
+@import
+  // "./apps/_yotpo.scss"
+  ;
+
+/* 10. Utility Classes */
+
+@import "./utilities/_classes.scss";
+
+/* 11. Third-Party Styles */
+
+@import
+  // "./third-party/_tippy.scss"
+  ;
+
+/* 12. Animations */
+
+@import "./utilities/_animations.scss";

@@ -1,0 +1,42 @@
+.breadcrumb {
+
+  font-size: 14px;
+  font-family: var(---font-stack-heading);
+  font-weight: var(---font-weight-heading);
+  text-transform: var(---font-heading-caps);
+  letter-spacing: var(---font-heading-space);
+
+}
+
+.breadcrumb__item {
+  a {
+    color: var(---color-text);
+    &:hover {
+      color: var(---color-primary);
+    }
+  }
+}
+
+.breadcrumb__item--blank {
+  .breadcrumb__text {
+    color: var(---color-text);
+    font-weight: var(---font-weight-heading);
+    opacity: 0.25;
+  }
+}
+
+.breadcrumb__item--current {
+  .breadcrumb__text {
+    color: var(---color-primary);
+    font-weight: var(---font-weight-heading);
+  }
+}
+
+.breadcrumb__item--completed {
+
+}
+
+.breadcrumb__chevron-icon {
+  position: relative;
+  top: -1px;
+}
