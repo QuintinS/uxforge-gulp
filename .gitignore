@@ -1,0 +1,81 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# =========================
+# Gulp Workflow Exclusions
+# =========================
+
+theme/assets/vendor.js
+theme/assets/vendor.min.js
+theme/assets/vendor.js.map
+theme/assets/vendor.min.js.map
+theme/assets/theme.js
+theme/assets/theme.min.js
+theme/assets/theme.js.map
+theme/assets/theme.min.js.map
+theme/assets/theme.css
+theme/assets/theme.min.css
+theme/assets/theme.css.map
+theme/assets/theme.min.css.map
+theme/assets/theme.css.liquid
+theme/assets/theme.min.css.liquid
+theme/assets/theme.css.liquid.map
+theme/assets/theme.min.css.liquid.map
+theme/assets/checkout.css.liquid
+theme/assets/checkout.min.css.liquid
+theme/assets/checkout.css.liquid.map
+theme/assets/checkout.min.css.liquid.map
+
+# =========================
+# Shopify Themekit
+# =========================
+
+theme.lock
+config.yml
+node_modules
+package-lock.json
