@@ -2,19 +2,27 @@
 
 /* ========== Paths ========== */
 
-const projectName = "brackish",
-      projectSrcLiquid = './**/*.liquid',
-      projectThemeSCSS = './_source/scss/theme/**/*.{scss,sass}',
-      projectSrcSCSS = './_source/scss/build/**/*.{scss,sass}',
-      projectSrcJSTheme = './_source/js/theme/**/*.js',
-      projectSrcJSVendor = [
-        './_source/js/vendor/vendor.js'
-      ],
-      projectDestJS = './theme/assets',
-      projectDestCSS = './theme/assets';
-      projectDestCSSFilename = 'custom-styles.css.liquid',
-      projectDestJSThemeFilename = 'theme.js',
-      projectDestJSVendorFilename = 'vendor.js';
+const devmode = true;
+
+const projectName = "aeolidia--duckadilly",
+
+      sourceLiquid = './**/*.liquid',
+      sourceSCSSTheme = './_source/scss/build/**/*.{scss,sass}',
+      sourceSCSSCheckout = './_source/scss/checkout/**/*.{scss,sass}',
+      sourceJSTheme = './_source/js/theme/**/*.js',
+      sourceJSVendor = './_source/js/vendor/**/*.js',
+
+      destinationJS = './theme/assets',
+      destinationCSS = './theme/assets',
+
+      filenameCSSTheme = 'theme.css.liquid',
+      filenameCSSThemeMin = 'theme.min.css.liquid',
+      filenameCSSCheckout = 'checkout.css.liquid',
+      filenameCSSCheckoutMin = 'checkout.min.css.liquid',
+      filenameJSTheme = 'theme.js',
+      filenameJSThemeMin = 'theme.min.js',
+      filenameJSVendor = 'vendor.js',
+      filenameJSVendorMin = 'vendor.min.js';
 
 
 /* ========== Modules ========== */
@@ -36,28 +44,63 @@ const gulp = require('gulp'),
 
 function style() {
 
-  return gulp.src(projectSrcSCSS)
+
+  if (devmode == true) {
+
+    return gulp.src(sourceSCSSTheme)
+      .pipe(sourcemaps.init()) // Registers sourcemaps
+      .pipe(sass()).on("error", sass.logError) // Logs SCSS errors succinctly to terminal.
+      .pipe(postcss([autoprefixer()])) // Runs compiled CSS through PostCSS for post-processing.
+      .pipe(concat(filenameCSSTheme)) // Changes the file to .liquid so Liquid tags can understand it.
+      .pipe(replace('"{{', '{{'))
+      .pipe(replace('}}"', '}}'))
+      .pipe(gulp.dest(destinationCSS))
+      .pipe(concat(filenameCSSThemeMin)) // Changes the file to .liquid so Liquid tags can understand it.
+      .pipe(postcss([cssnano()])) // Runs compiled CSS through PostCSS for post-processing.
+      .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
+      .pipe(gulp.dest(destinationCSS))
+      ;
+
+  }
+  else {
+
+    return gulp.src(sourceSCSSTheme)
+      .pipe(sourcemaps.init()) // Registers sourcemaps
+      .pipe(sass()).on("error", sass.logError) // Logs SCSS errors succinctly to terminal.
+      .pipe(postcss([autoprefixer(), cssnano()])) // Runs compiled CSS through PostCSS for post-processing.
+      .pipe(concat(filenameCSSTheme)) // Changes the file to .liquid so Liquid tags can understand it.
+      .pipe(replace('"{{', '{{'))
+      .pipe(replace('}}"', '}}'))
+      .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
+      .pipe(gulp.dest(destinationCSS))
+      ;
+
+  }
+
+  return gulp.src(sourceSCSSTheme)
     .pipe(sourcemaps.init()) // Registers sourcemaps
     .pipe(sass()).on("error", sass.logError) // Logs SCSS errors succinctly to terminal.
     .pipe(postcss([autoprefixer(), cssnano()])) // Runs compiled CSS through PostCSS for post-processing.
-    .pipe(concat(projectDestCSSFilename)) // Changes the file to .liquid so Liquid tags can understand it.
+    .pipe(concat(filenameCSSTheme)) // Changes the file to .liquid so Liquid tags can understand it.
     .pipe(replace('"{{', '{{'))
-		.pipe(replace('}}"', '}}'))
+    .pipe(replace('}}"', '}}'))
     .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
-    .pipe(gulp.dest(projectDestCSS))
-    // .pipe(browserSync.stream())
+    .pipe(gulp.dest(destinationCSS))
     ;
 
 }
 
-function theme() {
+function checkoutStyles() {
 
-  return gulp.src(projectThemeSCSS)
+  return gulp.src(sourceSCSSCheckout)
     .pipe(sourcemaps.init()) // Registers sourcemaps
     .pipe(sass()).on("error", sass.logError) // Logs SCSS errors succinctly to terminal.
     .pipe(postcss([autoprefixer(), cssnano()])) // Runs compiled CSS through PostCSS for post-processing.
+    .pipe(concat(filenameCSSCheckout)) // Changes the file to .liquid so Liquid tags can understand it.
+    .pipe(replace('"{{', '{{'))
+		.pipe(replace('}}"', '}}'))
     .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
-    .pipe(gulp.dest(projectDestCSS))
+    .pipe(gulp.dest(destinationCSS))
     // .pipe(browserSync.stream())
     ;
 
@@ -65,34 +108,64 @@ function theme() {
 
 function scripts() {
 
-  return gulp.src(projectSrcJSTheme)
-    .pipe(sourcemaps.init()) // Registers sourcemaps
-    .pipe(concat(projectDestJSThemeFilename))
-    .pipe(gulpif('*.js', uglify()))
-    .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
-    .pipe(gulp.dest(projectDestJS));
+  if (devmode == true) {
+
+    return gulp.src(sourceJSTheme)
+      .pipe(sourcemaps.init()) // Registers sourcemaps
+      .pipe(concat(filenameJSTheme))
+      .pipe(gulpif('*.js', uglify()))
+      .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
+      .pipe(gulp.dest(destinationJS));
+
+  }
+  else {
+
+    return gulp.src(sourceJSTheme)
+      .pipe(concat(filenameJSTheme))
+      .pipe(gulp.dest(destinationJS));
+
+  }
 
 }
 
 function vendorScripts() {
 
-  return gulp.src(projectSrcJSVendor)
+  return gulp.src(sourceJSVendor)
     .pipe(sourcemaps.init()) // Registers sourcemaps
-    .pipe(concat(projectDestJSVendorFilename))
+    .pipe(concat(filenameJSVendor))
     .pipe(gulpif('*.js', uglify()))
     .pipe(sourcemaps.write('./')) // Generates sourcemaps for in-browser debugging
-    .pipe(gulp.dest(projectDestJS));
+    .pipe(gulp.dest(destinationJS));
 
 }
 
 /* ========== Watch ========== */
 
 function watch() {
-  gulp.watch(projectSrcSCSS, style);
-  gulp.watch(projectSrcJSTheme, scripts);
-  gulp.watch(projectSrcJSVendor, vendorScripts);
-  gulp.watch(projectThemeSCSS, theme);
+
+  console.log("WATCHING");
+  console.log("Development Mode == " + devmode);
+
+  gulp.watch(sourceSCSSTheme, style);
+  gulp.watch(sourceSCSSCheckout, checkoutStyles);
+  gulp.watch(sourceJSTheme, scripts);
+  gulp.watch(sourceJSVendor, vendorScripts);
+
 }
 
-exports.style = style;
+function build() {
+
+  console.log("BUILDING");
+  console.log("Development Mode == " + devmode);
+
+  style();
+  checkoutStyles();
+  scripts();
+  vendorScripts();
+
+}
+
 exports.watch = watch;
+exports.build = build;
+
+exports.default = watch;
