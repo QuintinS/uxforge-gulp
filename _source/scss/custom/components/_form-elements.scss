@@ -1,0 +1,75 @@
+textarea,
+input:not([type="checkbox"]),
+input:not([type="radio"]),
+input:not([type="button"]),
+input:not([type="submit"]) {
+
+  &.input-style--2 {
+    @include input-style--2();
+  }
+
+}
+
+.CustomCheckbox {
+
+  $checkbox-size: 16px;
+
+  $checkbox-check-size: 10px;
+
+  appearance: none;
+
+  position: relative;
+
+  display: block;
+
+  min-width: $checkbox-size;
+  width: $checkbox-size;
+  min-height: $checkbox-size;
+  height: $checkbox-size;
+
+  margin-top: 1px;
+
+  border-radius: 4px;
+  border: 1px solid var(---color--black);
+
+  &:after {
+
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
+    margin: auto;
+    width: $checkbox-check-size;
+    height: $checkbox-check-size;
+
+    background: var(---color--black);
+
+    opacity: 0;
+    border-radius: 2px;
+
+  }
+
+  &:hover {
+    &:after {
+      opacity: 0.5;
+    }
+  }
+
+  &:focus {
+    &:after {
+
+    }
+  }
+
+  &:checked {
+    &:after {
+      opacity: 1;
+    }
+  }
+
+}

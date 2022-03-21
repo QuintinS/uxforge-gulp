@@ -1,0 +1,82 @@
+.note {
+
+  --note-color: var(---color--default);
+  --note-background-color: var(---background-color--default);
+  --note-font-size: var(---font-size-body--mobile);
+
+  display: flex;
+
+  border: 1px solid var(--note-color);
+  padding: 1em 1.2em;
+  margin: 1em auto;
+
+  font-size: var(--note-font-size);
+
+  border-radius: 4px;
+  color: var(--note-color);
+  background-color: var(--note-background-color);
+
+  p {
+
+    color: var(--note-color);
+
+    &:last-child {
+      margin: 0;
+    }
+
+  }
+
+  .note__content {
+
+  }
+
+  /* ----- Styles ----- */
+
+  &.note--primary {
+    --note-color: var(---color--primary);
+    --note-background-color: var(---background-color--primary);
+  }
+
+  &.note--secondary {
+    --note-color: var(---color--secondary);
+    --note-background-color: var(---background-color--secondary);
+  }
+
+  &.note--tertiary {
+    --note-color: var(---color--tertiary);
+    --note-background-color: var(---background-color--tertiary);
+  }
+
+  &.note--success {
+    --note-color: var(---color--success);
+    --note-background-color: var(---background-color--success);
+  }
+
+  &.note--warning {
+    --note-color: var(---color--warning);
+    --note-background-color: var(---background-color--warning);
+  }
+
+  &.note--danger {
+    --note-color: var(---color--danger);
+    --note-background-color: var(---background-color--danger);
+  }
+
+  &.note--info {
+    --note-color: var(---color--info);
+    --note-background-color: var(---background-color--info);
+  }
+
+  &.note--error {
+    --note-color: var(---color--danger);
+    --note-background-color: var(---background-color--danger);
+  }
+
+  /* ----- Sizes ----- */
+
+  &.note--small {
+    padding: .5em 1.4em;
+    --note-font-size: 0.9em;
+  }
+
+}

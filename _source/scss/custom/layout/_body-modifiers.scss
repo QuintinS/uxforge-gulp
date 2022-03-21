@@ -1,0 +1,31 @@
+html {
+
+  &.supports-no-cookies {
+    .supports-no-cookies {
+      display: none;
+    }
+  }
+
+  &.supports-cookies {
+    .supports-cookies {
+      display: none;
+    }
+  }
+
+}
+
+body {
+
+  &.logged-out {
+    
+  }
+
+  &.logged-in {
+
+  }
+
+  &.in-theme-customizer {
+
+  }
+
+}

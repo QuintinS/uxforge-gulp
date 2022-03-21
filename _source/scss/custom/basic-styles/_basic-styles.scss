@@ -1,0 +1,739 @@
+/*
+
+  1. Root Styles
+  2. Headings
+  3. Content
+  4. Lists
+  5. Tables
+
+*/
+
+/*  ==============================
+    0. Bridging Variables
+    ============================== */
+
+
+
+
+/*  ==============================
+    1. Root Styles
+    ============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: var(---color-text--dark);
+  background: var(---background-color--primary);
+}
+
+.Section--Background-primary {
+  ::selection {
+    color: var(---color-text--dark);
+    background: var(---background-color--secondary);
+  }
+}
+
+html,
+body {
+
+  font-weight: var(---font-weight-body);
+  font-style: var(---font-style-body);
+  letter-spacing: var(---letter-spacing--body);
+
+  color: var(---color-text);
+
+  font-size: var(---font-size-body--mobile);
+  line-height: var(---line-height-body--mobile);
+
+  @include respond-to($medium-up) {
+    font-size: var(---font-size-body--desktop);
+    line-height: var(---line-height-body--desktop);
+  }
+
+  scroll-behavior: smooth;
+
+  // overflow-x: hidden;
+
+}
+
+
+/*  ==============================
+    2. Headings
+    ============================== */
+
+h1, .h1, .u-h1,
+h2, .h2, .u-h2,
+h3, .h3, .u-h3,
+h4, .h4, .u-h4,
+h5, .h5, .u-h5,
+h6, .h6, .u-h6 {
+
+  font-family: var(--heading-font-family);
+  font-style: var(--heading-font-style);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(---line-height-heading);
+
+  margin-top: 0.25em;
+  margin-bottom: 0.75em;
+
+  color: var(---color-text--dark);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+}
+
+h1, .u-h1 {
+
+  font-size: var(---font-size-h1--mobile);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-h1--desktop);
+  }
+
+}
+
+h2, .u-h2 {
+
+  font-size: var(---font-size-h2--mobile);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-h2--desktop);
+  }
+
+}
+
+h3, .u-h3 {
+
+  font-size: var(---font-size-h3--mobile);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-h3--desktop);
+  }
+
+}
+
+h4, .u-h4 {
+
+  font-size: var(---font-size-h4--mobile);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-h4--desktop);
+  }
+
+}
+
+h5, .u-h5 {
+
+  font-size: var(---font-size-h5--mobile);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-h5--desktop);
+  }
+
+}
+
+h6, .u-h6 {
+
+  font-size: var(---font-size-h6--mobile);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-h6--desktop);
+  }
+
+}
+
+.u-h1--mobile {
+  @include respond-to($small-down){
+    font-size: var(---font-size-h1--mobile);
+  }
+}
+
+.u-h2--mobile {
+  @include respond-to($small-down){
+    font-size: var(---font-size-h2--mobile);
+  }
+}
+
+.u-h3--mobile {
+  @include respond-to($small-down){
+    font-size: var(---font-size-h3--mobile);
+  }
+}
+
+.u-h4--mobile {
+  @include respond-to($small-down){
+    font-size: var(---font-size-h4--mobile);
+  }
+}
+
+.u-h5--mobile {
+  @include respond-to($small-down){
+    font-size: var(---font-size-h5--mobile);
+  }
+}
+
+.u-h6--mobile {
+  @include respond-to($small-down){
+    font-size: var(---font-size-h6--mobile);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  &.u-title {
+
+    font-family: var(--heading-font-family);
+    font-style: var(--heading-font-style);
+    font-weight: var(--heading-font-weight);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: 1.05;
+
+    color: var(---color-text--dark);
+
+    font-size: var(---font-size-title--mobile);
+
+    @include respond-to($medium-up){
+      font-size: var(---font-size-title--desktop);
+    }
+
+  }
+
+}
+
+.SubHeading {
+
+  font-family: var(---font-family-body);
+  font-weight: var(---font-weight-body--bold);
+  text-transform: uppercase;
+  letter-spacing: var(---letter-spacing--subheading);
+
+  font-size: var(---font-size-body-small--mobile);
+
+  @include respond-to($medium-up) {
+    font-size: var(---font-size-body-small--desktop);
+  }
+
+}
+
+.SubHeadingLarge {
+
+  font-family: var(---font-family-body);
+  font-weight: var(---font-weight-body);
+  letter-spacing: var(---letter-spacing--body);
+
+  font-size: var(---font-size-subheading-large--mobile);
+
+  @include respond-to($medium-up) {
+    font-size: var(---font-size-subheading-large--desktop);
+  }
+
+}
+
+
+/*  ==============================
+    3. Content
+    ============================== */
+
+hr, .hr {
+
+  width: 100%;
+  margin: 2em 0;
+  border-width: 1px;
+  border-bottom: 0;
+  border-style: solid;
+  border-color: var(---color-line);
+
+  &.hr--light {
+    border-color: var(---color-line--light);
+  }
+
+  &.hr--dark {
+    border-color: var(---color-line--dark);
+  }
+
+  &.hr--clear {
+    border-color: transparent;
+  }
+
+  &.hr--small {
+    margin: 1em 0;
+  }
+
+}
+
+p, .p {
+
+  margin-top: 0;
+  margin-bottom: 1em;
+
+  font-size: var(---font-size-body--mobile);
+  font-family: var(---font-family-body);
+  font-weight: var(---font-weight-body);
+
+  @include respond-to($medium-up){
+    font-size: var(---font-size-body--desktop);
+  }
+
+  &.minor {
+    font-size: var(---font-size-body-small--mobile);
+    @include respond-to($medium-up){
+      font-size: var(---font-size-body-small--desktop);
+    }
+  }
+
+  &.major {
+    font-size: var(---font-size-body-large--mobile);
+    @include respond-to($medium-up){
+      font-size: var(---font-size-body-large--desktop);
+    }
+  }
+
+}
+
+.minor {
+  font-size: var(---font-size-body-small--mobile);
+  p {
+    font-size: var(---font-size-body-small--mobile);
+    @include respond-to($medium-up){
+      font-size: var(---font-size-body-small--desktop);
+    }
+  }
+}
+
+.medium {
+  font-size: var(---font-size-body-medium--mobile);
+  p {
+    font-size: var(---font-size-body-medium--mobile);
+    @include respond-to($medium-up){
+      font-size: var(---font-size-body-medium--desktop);
+    }
+  }
+}
+
+.major {
+  font-size: var(---font-size-body-large--mobile);
+  p {
+    font-size: var(---font-size-body-large--mobile);
+    @include respond-to($medium-up){
+      font-size: var(---font-size-body-large--desktop);
+    }
+  }
+}
+
+.p--mobile,
+.p--mobile p {
+  @include respond-to($medium-down){
+    font-size: var(---font-size-body--mobile);
+  }
+}
+
+.p-minor--mobile,
+.p-minor--mobile p {
+  @include respond-to($medium-down){
+    font-size: var(---font-size-body-small--mobile);
+  }
+}
+
+.p-major--mobile,
+.p-major--mobile p {
+  @include respond-to($medium-down){
+    font-size: var(---font-size-body-large--mobile);
+  }
+}
+
+strong, .strong {
+
+  --color: var(---color-text-dark);
+
+  font-weight: var(---font-weight-body--bold);
+
+}
+
+a, .a {
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(---color-link--hover);
+  }
+
+}
+
+blockquote, .blockquote {
+
+  margin: 0;
+  margin-bottom: 1em;
+
+  line-height: var(---line-height-body-wide--mobile);
+
+  @include respond-to($medium-up){
+    line-height: var(---line-height-body-wide--desktop);
+  }
+
+  p {
+
+    &:first-child {
+
+      &::first-letter {
+
+        float: left;
+        padding: 0 .1em 0 0;
+        margin-top: -0.1em;
+        // margin-bottom: -.3em;
+
+        font-family: var(---font-family-heading);
+        font-size: var(---font-size-h1--desktop);
+        letter-spacing: normal;
+        line-height: 1em;
+
+      }
+
+    }
+
+  }
+
+  cite {
+    font-family: var(---font-family-heading);
+    font-size: var(---font-size-body-large--mobile);
+    font-style: var(---font-weight-body--bold);
+    color: var(---color-text--dark);
+  }
+
+  a {
+    display: inline; // Safari Quirk
+  }
+
+  &.blockquote--bordered {
+    padding: 40px;
+    border: 1px solid var(---color-line--dark);
+  }
+
+  &.blockquote--center {
+    p {
+      &:first-child {
+        &::first-letter {
+          float: none;
+        }
+      }
+    }
+  }
+
+  &.blockquote--left {
+    text-align: center;
+    p {
+      &:first-child {
+        &::first-letter {
+          float: none;
+        }
+      }
+    }
+    @include respond-to(medium-up) {
+      .blockquote--left {
+        text-align: left;
+      }
+    }
+  }
+
+}
+
+img, .img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/*  ==============================
+    4. Lists
+    ============================== */
+
+ul, .ul,
+ol, .ol {
+
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+
+  li {
+      margin-bottom: 0.5em;
+  }
+
+}
+
+ul {
+
+  // list-style: none;
+
+}
+
+
+/*  ==============================
+    5. Tables
+    ============================== */
+
+table, .table {
+
+  width: 100%;
+  border-collapse: collapse;
+
+  td {
+    vertical-align: top;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.5em;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+      text-align: right;
+    }
+  }
+
+  td {
+    &:first-child {
+      font-weight: bold;
+    }
+  }
+
+  tr {
+    &:hover {
+      td {
+        background: var(---background-color--default);
+      }
+    }
+  }
+
+  &.table--style-1 {
+
+    border: 1px solid var(---color-text);
+    background: var(---background-color--content-1);
+
+    th {
+
+      font-family: var(---font-family-heading);
+      font-weight: var(---font-weight-heading);
+
+      color: var(---color-text--dark);
+
+      font-size: var(---font-size-h4--mobile);
+
+      @include respond-to($medium-up) {
+        font-size: var(---font-size-h4--desktop);
+      }
+
+    }
+
+    td, th {
+      padding: 0.5em 1rem;
+    }
+
+    td {
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+
+    tr {
+      &:hover {
+        td {
+          background: var(---background-color--primary);
+        }
+      }
+    }
+
+  }
+
+  &.table--style-2 {
+
+    border: 1px solid var(---color-text);
+    background: var(---background-color--content-1);
+
+    th {
+
+      font-family: var(---font-family-heading);
+      font-weight: var(---font-weight-heading);
+
+      color: var(---color-text--dark);
+
+      font-size: var(---font-size-h4--mobile);
+
+      @include respond-to($medium-up) {
+        font-size: var(---font-size-h4--desktop);
+      }
+
+    }
+
+    td, th {
+      padding: 0.5em 1rem;
+    }
+
+    td {
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+
+    tr {
+      &:hover {
+        td {
+          background: var(---background-color--secondary);
+        }
+      }
+    }
+
+  }
+
+  &.table--style-3 {
+
+    tr {
+      &:nth-child(even) {
+        td {
+          background-color: #F2F4F6;
+        }
+      }
+      &:nth-child(odd) {
+
+      }
+      &:hover {
+        td {
+          background-color: var(---color--mid-blue);
+        }
+      }
+    }
+
+    thead {
+      th {
+        @include respond-to($medium-down) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        @include respond-to($medium-up) {
+          padding-bottom: 20px;
+        }
+      }
+    }
+
+    td, th {
+      vertical-align: middle;
+      text-align: center;
+      &:first-child {
+        text-align: left;
+        padding-left: 30px;
+      }
+      &:last-child {
+        padding-right: 30px;
+        text-align: right;
+      }
+    }
+
+  }
+
+}
+
+/*  ==============================
+    6. Form Elements
+    ============================== */
+
+textarea,
+select,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+// input[type="search"],
+input[type="date"] {
+
+  @include input-structure();
+  @include input-style();
+
+  &.input--bare {
+    padding: 0 ;
+    border: 0 ;
+    margin: 0 ;
+  }
+
+}
+
+select,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+// input[type="search"],
+input[type="date"] {
+
+  &[disabled] {
+
+    background: transparent;
+    cursor: not-allowed;
+
+  }
+
+}
+
+select {
+  appearance: none;
+  background: transparent;
+  background-image: var(---icon--chevron-down);
+  background-position: right 1em top 50%;
+  background-repeat: no-repeat;
+  background-size: 14px;
+}
+
+input[type="search"] {
+
+  background-image: var(---icon-search);
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+
+}
+
+.label,
+label {
+
+  @include label-structure();
+
+}
+
+button {
+
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  border: none;
+
+}
+
+fieldset {
+
+  display: block;
+  appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+/*  ==============================
+    6. Icons
+    ============================== */
+
+svg {
+  * {
+    // fill: currentColor;
+  }
+}

@@ -1,0 +1,31 @@
+#main {
+
+  background: var(---background-color--content-1);
+
+}
+
+
+.Form__FloatingLabel {
+  font-size: var(---font-size-body-small--mobile);
+  @include respond-to($medium-up) {
+    font-size: var(---font-size-body-small--desktop);
+  }
+}
+
+.Search__Input {
+  outline: none;
+}
+
+.PageOverlay {
+
+  opacity: 0;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  transform: translate3d(0, 0, 0);
+  visibility: hidden;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

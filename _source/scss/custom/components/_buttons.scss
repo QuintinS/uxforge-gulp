@@ -1,0 +1,186 @@
+.Button,
+.btn {
+
+  @include button-structure();
+
+  &.Button--primary,
+  &.btn--primary {
+  	// @include button-style($color-primary);
+    @include button-style($color-default);
+  }
+
+  &.Button--secondary,
+  &.btn--secondary {
+  	@include button-style($color-secondary);
+  }
+
+  &.Button--tertiary,
+  &.btn--tertiary {
+  	@include button-style($color-tertiary);
+  }
+
+  &.Button--success,
+  &.btn--success {
+  	@include button-style($color-success);
+  }
+
+  &.Button--warning,
+  &.btn--warning {
+  	@include button-style($color-warning);
+  }
+
+  &.Button--danger,
+  &.btn--danger {
+  	@include button-style($color-danger);
+  }
+
+  &.Button--info,
+  &.btn--info {
+  	@include button-style($color-info);
+  }
+
+  &.btn--inverted {
+    @include button-style--inverted();
+  }
+
+  &.Button--link,
+  &.btn--link {
+
+    position: relative;
+    top: 1px;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    border: 0;
+    border-radius: 0;
+    text-transform: unset;
+
+    font-weight: var(---font-weight-body);
+
+    color: var(---color-text);
+    background: transparent;
+
+    transition: color 0.25s;
+
+    + .Button--link,
+    + .btn--link {
+      margin-left: 1.2em;
+    }
+
+
+    &:before {
+
+      content: "";
+      position: absolute;
+      bottom: 0.5em;
+      left: 0;
+      top: unset;
+      right: unset;
+
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+
+      transform-origin: left;
+
+      transition:
+        0.25s background var(---transition-hover),
+        0.25s opacity var(---transition-hover),
+        0.25s transform var(---transition-hover);
+
+    }
+
+    &.Button--link--hide-underline {
+      &:before {
+        transform: scaleX(0);
+      }
+      &:not([disabled]),
+      &:not(.disabled){
+        &:focus,
+        &:hover {
+          &:before {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+
+    &[disabled],
+    &.disabled, {
+      opacity: 0.5;
+      color: var(---color-text);
+      background: transparent;
+      &:before {
+        background: transparent;
+      }
+    }
+
+    &:not([disabled]),
+    &:not(.disabled){
+      &:focus,
+      &:hover {
+        &:before {
+          transform: scaleX(0);
+          opacity: 0.5;
+        }
+      }
+    }
+
+  }
+
+}
+
+.Link {
+
+  &.Link--tiny {
+    font-size: var(---font-size-body-xs--mobile);
+    @include respond-to($medium-up) {
+      font-size: var(---font-size-body-xs--desktop);
+    }
+  }
+
+  &.Link--small {
+    font-size: var(---font-size-body-small--mobile);
+    @include respond-to($medium-up) {
+      font-size: var(---font-size-body-small--desktop);
+    }
+  }
+
+  &.Link--large {
+    font-size: var(---font-size-body-large--mobile);
+    @include respond-to($medium-up) {
+      font-size: var(---font-size-body-large--desktop);
+    }
+  }
+
+  &.Link--hide-underline {
+
+    &:before {
+      transform: scaleX(0);
+    }
+    &:not([disabled]),
+    &:not(.disabled){
+      &:focus,
+      &:hover {
+        &:before {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+  }
+
+}
+
+.shopify-payment-button__button--unbranded {
+
+  @include button-structure();
+
+  width: 100%;
+
+  &::before {
+    background: transparent;
+  }
+
+}

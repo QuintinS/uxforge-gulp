@@ -1,0 +1,422 @@
+/*
+
+  1. Utilities
+  2. Responsive
+  3. UI Elements
+    3.1. Buttons
+
+*/
+
+/*  ==============================
+    1. Utilities
+    ============================== */
+
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  // sass-lint:disable
+  *zoom: 1;
+}
+
+@mixin visually-hidden() {
+  // sass-lint:disable no-important
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  max-width: 1px;
+  max-height: 1px;
+  font-size: 0;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+@mixin visually-shown($position: inherit) {
+  // sass-lint:disable no-important
+  position: $position !important;
+  overflow: auto;
+  clip: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+/*  ==============================
+    2. Responsive
+    ============================== */
+
+@mixin respond-to($media-query) {
+  $breakpoint-found: false;
+
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $declaration: nth($breakpoint, 2);
+
+    @if $media-query == $name and $declaration {
+      $breakpoint-found: true;
+
+      @media only screen and #{$declaration} {
+        @content;
+      }
+    }
+  }
+
+  @if $breakpoint-found == false {
+    @warn 'Breakpoint "#{$media-query}" does not exist';
+  }
+}
+
+/*================ Responsive Show/Hide Helper ================*/
+@mixin responsive-display-helper($breakpoint: '') {
+  // sass-lint:disable no-important
+  .#{$breakpoint}shown {
+    display: block !important;
+  }
+
+  .#{$breakpoint}hidden {
+    display: none !important;
+  }
+}
+
+
+/*================ Responsive Text Alignment Helper ================*/
+@mixin responsive-text-align-helper($breakpoint: '') {
+  // sass-lint:disable no-important
+  .#{$breakpoint}text-left {
+    text-align: left !important;
+  }
+
+  .#{$breakpoint}text-right {
+    text-align: right !important;
+  }
+
+  .#{$breakpoint}text-center {
+    text-align: center !important;
+  }
+}
+
+/*  ==============================
+    3. UI Elements
+    ============================== */
+
+/*  ------------------------------
+    3.1. Buttons
+    ------------------------------ */
+
+@mixin button-structure() {
+
+  --button-color: var(---input-background);
+  --button-color--hover: var(---input-background);
+  --button-color--active: var(---input-background);
+
+  --border-color: var(---color-line);
+  --border-color--hover: var(---color-line--dark);
+  --border-color--active: var(---color-line--dark);
+
+  --color-text: var(---color-text);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.8em 1.4em;
+  margin: 0.05em;
+
+  width: auto;
+  min-width: var(---button-min-width);
+
+  height: auto;
+  min-height: 0;
+  max-height: none;
+
+  border: 2px solid var(--border-color);
+  border-radius: var(---button-radius);
+
+  font-family: var(---font-family-body);
+  font-size: var(---font-size-body--mobile);
+  font-weight: var(---font-weight-body--bold);
+  font-style: var(---font-style-body);
+
+  line-height: 1.2;
+  text-align: center;
+
+  // text-transform: uppercase;
+  letter-spacing: var(---button-letter-spacing);
+  vertical-align: top;
+  white-space: nowrap;
+
+  background: var(--button-color);
+  color: var(--color-text);
+
+  transition: all 0.2s linear;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+
+  cursor: pointer;
+
+  &::before {
+    // background: var(--button-color);
+  }
+
+  &:focus,
+  &:hover {
+    color: var(--color-text);
+    background-color: var(--button-color--hover);
+    border-color: var(--border-color--hover);
+  }
+
+  &:active {
+    color: var(--color-text);
+    background-color: var(--button-color--active);
+    border-color: var(--border-color--active);
+  }
+
+  // Sizes
+
+  &.Button--tiny,
+  &.btn--tiny {
+    border-width: 1px;
+    font-weight: var(---font-weight-body);
+    font-size: var(---font-size-body-xs--mobile);
+    @include respond-to($medium-up) {
+      font-size: var(---font-size-body-xs--desktop);
+    }
+  }
+
+  &.Button--small,
+  &.btn--small {
+    border-width: 1px;
+    font-weight: var(---font-weight-body);
+    font-size: var(---font-size-body-small--mobile);
+    @include respond-to($medium-up) {
+      font-size: var(---font-size-body-small--desktop);
+    }
+  }
+
+  &.Button--large,
+  &.btn--large {
+    font-size: var(---font-size-body-large--mobile);
+    @include respond-to($medium-up) {
+      font-size: var(---font-size-body-large--desktop);
+    }
+  }
+
+  &.Button--huge,
+  &.btn--huge {
+    font-size: calc(var(--font-size) * 1.4);
+  }
+
+  &.Button--full,
+  &.btn--full {
+    display: block;
+    width: 100%;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom: 1em;
+  }
+
+  .btn__text {
+
+  }
+
+  .btn__icon {
+
+    svg {
+      width: 24px;
+      color: #fff;
+      fill: currentColor;
+      stroke: currentColor;
+    }
+
+  }
+
+  + .btn {
+    margin-left: 0.25em;
+  }
+
+  @include respond-to($medium-up) {
+    font-size: var(---font-size-body--desktop);
+  }
+
+}
+
+@mixin button-style($color){
+
+  --border-color: var(--button-color);
+
+  --color-text: var(---color-text--reversed);
+
+  --button-color: var(---color--#{$color});
+  --button-color--hover: var(---color--#{$color}-hover);
+  --button-color--active: var(---color--#{$color}-active);
+
+  --border-color: var(---color--#{$color});
+  --border-color--hover: var(---color--#{$color}-hover);
+  --border-color--active: var(---color--#{$color}-active);
+
+  &[disabled] {
+
+    --button-color: var(---color--#{$color});
+
+    color: var(--color-text);
+    opacity: 0.5;
+    cursor: not-allowed;
+
+  }
+
+}
+
+@mixin button-style--inverted(){
+
+  background: transparent;
+  color: var(--button-color);
+
+  &:focus,
+  &:hover {
+    color: var(---color-text--reversed);
+    background: var(--button-color);
+    border-color: var(--button-color);
+  }
+
+  &:active {
+    color: var(---color-text--reversed);
+    background: var(--button-color--active);
+    border-color: var(--button-color);
+  }
+
+}
+
+@mixin label-structure() {
+
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  font-weight: bold;
+
+}
+
+@mixin input-structure(
+
+  $border-color: var(---color--secondary),
+  $border-color-hover: var(---color--secondary-hover)){
+
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+
+  font-size: 14px;
+  padding: 1em 1.4em;
+  border: 1px solid $border-color;
+
+  &:not([disabled]){
+    &:focus,
+    &:hover {
+      border-color: $border-color-hover;
+    }
+  }
+
+}
+
+@mixin input-style() {
+
+  $border-color: var(---color--default);
+  $border-color-hover: var(---color--default-hover);
+
+  border-radius: var(---input-border-radius);
+  background: var(---input-background);
+
+  border: 1px solid $border-color;
+
+  color: var(---color-text);
+
+  outline: none;
+
+  &:not([disabled]){
+    &:focus,
+    &:hover {
+      border-color: $border-color-hover;
+    }
+  }
+
+  &::placeholder {
+    color: var(---color-text--light) !important;
+    opacity: 1;
+  }
+
+}
+
+@mixin input-style--2() {
+
+  border: 0;
+  padding: 0.5em 0.2em;
+
+  border-bottom: 1px solid var(---color--black);
+
+  font-size: var(---font-size-body--mobile);
+  @include respond-to($medium-up) {
+    font-size: var(---font-size-body--desktop);
+  }
+
+}
+
+/*  ------------------------------
+    3.2. RTE
+    ------------------------------ */
+
+    @mixin link-style() {
+
+      &:after {
+
+        content: '';
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: currentColor;
+        color: var(---color-link);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        transition: transform 0.25s;
+        transform-origin: left;
+        transform: scale(0);
+
+      }
+
+      &:hover {
+        color: var(---color-link--hover);
+        &:after {
+          transform: scale(1);
+        }
+      }
+
+    }
+
+/*  ------------------------------
+    3.3. Shopify
+    ------------------------------ */
+
+@mixin when-logged-in {
+
+  body.logged-in & {
+    @content;
+  }
+
+}
+
+@mixin when-logged-out {
+
+  body.logged-out & {
+    @content;
+  }
+
+}

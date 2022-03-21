@@ -1,0 +1,196 @@
+/*
+  ==============================
+  1. Variables
+  ==============================
+  SCSS variables which store values used in the theme, e.g.
+  - Media Query breakpoint widths
+  - Page and site widths.
+  - Section padding and gutter widths.
+
+  NOTE: For theme-based builds. These are typically the same as what are found in the theme and should be
+  updated to reflect what's used in the the base theme.
+
+*/
+
+// @import "./utilities/_variables.scss";
+@import "./utilities/_variables--prestige.scss";
+
+/*
+  ==============================
+  2. Mixins
+  ==============================
+  Some useful mixins.
+*/
+
+@import "./utilities/_mixins.scss";
+
+/*
+  ==============================
+  3. Fonts
+  ==============================
+  Typically includes @font-face definitions or @import rules for Google Fonts.
+
+  NOTE: In a theme context, @font-face definitions generally make more sense to
+  include in the css-variables.liquid file.
+*/
+
+@import "./fonts/_fonts.scss";
+
+/*
+  ==============================
+  4. Basic Styles
+  ==============================
+  CSS for base HTML tags, such as headings and paragraphs.
+  This partial should include all rules for typography, color etc. for basic
+  elements.
+*/
+
+// @import "./utilities/_normalize.scss"; // Prestige already contains Normalize
+@import "./basic-styles/_basic-styles.scss";
+
+/*
+  ==============================
+  5. Layout
+  ==============================
+  CSS for theme layout.
+  - _layout -  For completely bespoke themes, this section typically contains
+  all layout code for CSS grids, utility classes like page-width, etc. Typically not used in theme-based sites.
+  - _body-modifiers - Some useful body modifiers.
+*/
+
+@import
+  // "./layout/_layout"
+  "./layout/_body-modifiers.scss"
+  ;
+
+/*
+  ==============================
+  6. Sections
+  ==============================
+  CSS for sections.
+  This is broken up into different kinds of section:
+  - Global - e.g. header, footer, drawers, modals etc.
+  - Override Theme - partials for sections in the theme that we haven't modified in any way.
+  - Custom Sections - partials for sections based on the theme sections that we've modified the liquid for.
+  - Bepoke Sections - partials for sections written completely from scratch.
+*/
+
+
+@import
+
+  // Global Section Styling
+  "./sections/_header.scss",
+  "./sections/_footer.scss",
+  "./sections/_drawers.scss",
+  "./sections/_popup.scss",
+
+  // Override Theme Sections
+  // "./sections/_theme-slideshow.scss",
+  // "./sections/_theme-text-with-image.scss",
+  // "./sections/_theme-collection-list.scss",
+
+  // Custom Sections
+  // "./sections/_custom-slideshow.scss",
+  // "./sections/_custom-text-with-image.scss",
+  // "./sections/_custom-collection-list.scss",
+
+  // Bespoke Sections
+  // "./sections/_bespoke-accordions.scss",
+  // "./sections/_bespoke-gallery.scss",
+  // "./sections/_bespoke-team.scss",
+
+  // Misc. Section Styling
+  "./sections/__sections.scss"
+
+  ;
+
+/*
+  ==============================
+  7. Page-Specific Styles
+  ==============================
+  CSS for page-specific code.
+
+  Each partial contains CSS for a specific page tmeplate. The code is made
+  specific to the page template with a body modifier (e.g. body.template-product)
+
+  This is rarely used since most CSS gets put into section templates, but small
+  page-specific overrides can be useful.
+*/
+
+@import
+  "./pages/_home.scss",
+  "./pages/_collection.scss",
+  "./pages/_product.scss",
+  "./pages/_cart.scss",
+  "./pages/_blog.scss",
+  "./pages/_article.scss",
+  "./pages/_page.scss",
+  "./pages/_page-about.scss",
+  "./pages/_search.scss",
+  "./pages/_page-subscriptions.scss",
+  "./pages/__pages.scss"
+  ;
+
+/*
+  ==============================
+  8. Components
+  ==============================
+  CSS for self-contained standalone promotions that can be used throughout the
+  theme in different contexts. e.g.,
+  - product cards, collection cards, product add to cart forms, modals, etc.
+*/
+
+@import
+  "./components/__components.scss",
+  "./components/_rte.scss",
+  "./components/_buttons.scss",
+  "./components/_note.scss"
+  "./components/_form-elements.scss",
+  "./components/_product-item.scss"
+  ;
+
+// @import
+  // "./components/_buttons.scss"
+  // ;
+
+/*
+  ==============================
+  9. Apps
+  ==============================
+  CSS for app widget styling.
+  Each app gets its own partial to separate code specific to it.
+*/
+
+@import
+  "./apps/__apps.scss",
+  // "./apps/_judgeme.scss"
+  ;
+
+/*
+  ==============================
+  10. Utility Classes
+  ==============================
+  CSS utility classes that can be used throughout the theme.
+*/
+
+@import "./utilities/_classes.scss";
+
+/*
+  ==============================
+  11. Third-Party Styles
+  ==============================
+  Other third-party CSS (e.g. libraries etc.)
+*/
+
+@import
+  "./third-party/__thirdparty.scss"
+  ;
+
+/*
+  ==============================
+  12. Animations
+  ==============================
+  Partial containing keyframes and animation definitions.
+*/
+
+@import "./utilities/_animations.scss";

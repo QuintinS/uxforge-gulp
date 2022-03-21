@@ -1,0 +1,25 @@
+{
+  "name": "UXForgeGulp",
+  "version": "0.1.0",
+  "description": "Gulp workflow template for Shopify",
+  "author": "Quintin Schnehage",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/QuintinS/uxforge-gulp",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "cssnano": "^5.0.5",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.14.1",
+    "postcss": "^8.3.1"
+  },
+  "dependencies": {
+    "@shopify/theme-sections": "^4.1.1"
+  }
+}
